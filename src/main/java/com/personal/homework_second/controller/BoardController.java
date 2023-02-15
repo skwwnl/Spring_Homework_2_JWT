@@ -1,5 +1,6 @@
 package com.personal.homework_second.controller;
 
+import com.personal.homework_second.dto.BoardDeleteDto;
 import com.personal.homework_second.dto.BoardRequestDto;
 import com.personal.homework_second.dto.BoardResponseDto;
 import com.personal.homework_second.service.BoardService;
@@ -47,7 +48,7 @@ public class BoardController {
 
     // Delete 방식으로 선택한 게시글 삭제 API
     @DeleteMapping("/boards/{id}")
-    public String deleteBoard(@PathVariable Long id, HttpServletRequest request) {
+    public BoardDeleteDto deleteBoard(@PathVariable Long id, HttpServletRequest request) {
         return boardService.delete(id, request);
     }
 

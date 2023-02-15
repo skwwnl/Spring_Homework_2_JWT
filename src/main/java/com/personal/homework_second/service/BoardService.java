@@ -113,12 +113,12 @@ public class BoardService {
     }
 
     @Transactional
-    public String delete(Long id, HttpServletRequest request) {
+    public BoardDeleteDto delete(Long id, HttpServletRequest request) {
         // Request 에서 Token 가져오기
         String token = jwtUtil.resolveToken(request);
         Claims claims;
 
-        BoardDeleteDto abs = new BoardDeleteDto();
+
         // 토큰이 있는 경우에만 게시판 삭제
         if (token != null) {
             if (jwtUtil.validateToken(token)) {
@@ -137,7 +137,7 @@ public class BoardService {
             );
 
             boardRepository.deleteById(id);
-            return abs.getSuccess();
+            return new BoardDeleteDto();
         } else {
             return null;
         }

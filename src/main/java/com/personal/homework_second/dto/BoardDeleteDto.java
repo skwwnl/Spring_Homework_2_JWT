@@ -2,13 +2,16 @@ package com.personal.homework_second.dto;
 
 
 public class BoardDeleteDto {
-    private String success;
 
+    private String msg = "게시글 삭제 성공";
+    private int statusCode = 200;
     public BoardDeleteDto(){
-        this.success = "삭제하였습니다";
     }
 
-    public String getSuccess(){
-        return success;
+    public String getMsg(){
+        return msg;
+    }
+    public int getStatusCode(){
+        return statusCode;
     }
 }
