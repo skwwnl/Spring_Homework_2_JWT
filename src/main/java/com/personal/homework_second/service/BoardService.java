@@ -27,7 +27,7 @@ public class BoardService {
 
 
     @Transactional (readOnly = true)
-    public List<BoardResponseDto> allShow(){
+    public List<BoardResponseDto> allBoard(){
         List<Board> boards = boardRepository.findAllByOrderByModifiedAtDesc();
         List<BoardResponseDto> responseDtos = new ArrayList<>();
         for (Board board : boards) {
@@ -75,7 +75,7 @@ public class BoardService {
 //        return board;
 
     @Transactional
-    public BoardResponseDto selectShow(Long id) {
+    public BoardResponseDto selectBoard(Long id) {
         Board board = boardRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 번호의 게시글이 존재하지 않습니다.")
         );
@@ -83,7 +83,7 @@ public class BoardService {
     }
 
     @Transactional
-    public BoardResponseDto update(BoardRequestDto requestDto, HttpServletRequest request) {
+    public BoardResponseDto updateBoard(BoardRequestDto requestDto, HttpServletRequest request) {
         // Request 에서 Token 가져오기
         String token = jwtUtil.resolveToken(request);
         Claims claims;
@@ -113,7 +113,7 @@ public class BoardService {
     }
 
     @Transactional
-    public BoardDeleteDto delete(Long id, HttpServletRequest request) {
+    public BoardDeleteDto deleteBoard(Long id, HttpServletRequest request) {
         // Request 에서 Token 가져오기
         String token = jwtUtil.resolveToken(request);
         Claims claims;

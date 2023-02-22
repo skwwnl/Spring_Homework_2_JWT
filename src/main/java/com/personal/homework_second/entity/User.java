@@ -1,8 +1,6 @@
 package com.personal.homework_second.entity;
 
-
 import com.personal.homework_second.dto.SignupRequestDto;
-import com.personal.homework_second.dto.SignupResponseDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,7 +13,6 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
     // nullable: null 허용 여부

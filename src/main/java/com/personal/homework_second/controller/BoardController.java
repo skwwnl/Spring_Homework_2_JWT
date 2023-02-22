@@ -12,7 +12,7 @@ import java.util.List;
 
 // 모든 들어오는 나가는 Json으로 나간다.
 @RestController
-@RequestMapping("api/")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class BoardController {
 
@@ -20,36 +20,36 @@ public class BoardController {
     private final BoardService boardService;
 
     // 모든 게시판 조회 API
-    @GetMapping("/All_boards")
-    public List<BoardResponseDto> allShow() {
-        return boardService.allShow();
+    @GetMapping("/boards")
+    public List<BoardResponseDto> allBoard() {
+        return boardService.allBoard();
     }
 
     // Post 방식으로 게시판 추가 API
-    @PostMapping("/boards")
+    @PostMapping("/board")
     public BoardResponseDto createBoard(@RequestBody BoardRequestDto requestDto,
                                         HttpServletRequest request) {
         return boardService.createBoard(requestDto, request);
     }
 
     // Get 방식으로 선택한 게시글 조회 API
-    @GetMapping("/boards/{id}")
-    public BoardResponseDto selectShow(@PathVariable Long id) {
+    @GetMapping("/board/{id}")
+    public BoardResponseDto selectBoard(@PathVariable Long id) {
         return boardService.selectShow(id);
     }
 
     // Put 방식으로 선택한 게시글 수정 API
-    @PutMapping("/boards/{id}")
+    @PutMapping("/board/{id}")
     public BoardResponseDto updateBoard(@PathVariable Long id,
                                         @RequestBody BoardRequestDto requestDto,
                                         HttpServletRequest request) {
-        return boardService.update(requestDto, request);
+        return boardService.updateBoard(requestDto, request);
     }
 
     // Delete 방식으로 선택한 게시글 삭제 API
-    @DeleteMapping("/boards/{id}")
+    @DeleteMapping("/board/{id}")
     public BoardDeleteDto deleteBoard(@PathVariable Long id, HttpServletRequest request) {
-        return boardService.delete(id, request);
+        return boardService.deleteBoard(id, request);
     }
 
 }

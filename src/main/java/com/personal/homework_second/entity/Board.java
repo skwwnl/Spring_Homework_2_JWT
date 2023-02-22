@@ -1,7 +1,6 @@
 package com.personal.homework_second.entity;
 
 import com.personal.homework_second.dto.BoardRequestDto;
-import com.personal.homework_second.dto.BoardResponseDto;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

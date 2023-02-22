@@ -13,7 +13,7 @@ public class SignupRequestDto {
 
     @NotNull(message = "password 입력은 필수입니다.")
 //    @Size(min = 8, max = 15)
-    @Pattern(regexp = "^[a-zA-Z0-9\\\\\\\\d`~!@#$%^&*()-_=+]{8,15}$")
+    @Pattern(regexp = "^[a-zA-Z0-9\\\\d`~!@#$%^&*()-_=+]{8,15}$")
     //@Pattern(regexp = "^[a-zA-Z0-9]")
     private String password;
 
